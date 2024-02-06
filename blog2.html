@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style_dumy.css" />
+    <title>Navigatiob throught Social Media</title>
+    <link rel="icon" href="favicon-32x32.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Habibi&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body id="body_blog">
+    <div class="heady">
+      <!-- <img src="favicon-32x32.png"width="38px" alt="icon" align="left"> -->
+      <h1 class="heading4">
+        Social Media
+        <div>
+          <label class="switch">
+            <input id="slide" ; type="checkbox" ; onchange="toggle()" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </h1>
+      <hr />
+    </div>
+    <div class="blog-container">
+      <article class="blog-post" id="blog2">
+        <h2 class="h2"> Nav throught Media</h2>
+        <p style="color: black; font-family: Habibi;">
+          <strong>Navigating the Social Media Landscape: Trends, Challenges, and
+            Societal Impact </strong><br /><br />
+
+          In the digital age, social media has become an integral part of our
+          daily lives, shaping the way we connect, communicate, and consume
+          information. While these platforms offer unprecedented opportunities
+          for social interaction, they also bring forth a range of trends and
+          challenges that significantly impact society. In this exploration,
+          we'll delve into the evolving landscape of social media and its
+          broader societal implications. <br /><br />
+
+          1. Rise of Social Media: <br /><br />
+
+          Trace the evolution of social media platforms from their inception to
+          the present day. Explore the factors that contributed to their
+          widespread adoption and influence on global communication. <br />
+          2. Social Connectivity and Relationships: <br /><br />
+
+          Examine how social media has transformed the way individuals form and
+          maintain relationships. Explore both the positive aspects of increased
+          connectivity and the potential challenges in sustaining meaningful
+          connections. <br />
+          3. Information Consumption and Dissemination: <br /><br />
+
+          Investigate the role of social media as a primary source of news and
+          information. Analyze how the rapid dissemination of information on
+          these platforms influences public opinion, political discourse, and
+          societal beliefs. <br />
+          4. Social Media and Mental Health: <br /><br />
+
+          Explore the complex relationship between social media usage and mental
+          health. Investigate studies and trends that highlight both the
+          positive and negative impacts on individuals' well-being. <br />
+          5. The Influence of Social Media on Behavior and Culture: <br /><br />
+
+          Uncover the ways in which social media shapes societal norms, trends,
+          and cultural phenomena. Examine the impact of influencers, viral
+          content, and online communities on real-world behavior. <br />
+
+          <light>
+            If you have any insights, advice, or if there's anything specific
+            you'd like to know or discuss regarding website creation or computer
+            science, feel free to reach out to
+            <a href="#contact" style="text-decoration: none"><i>me</i></a
+            >.</light
+          >
+        </p>
+        <div class="like-counter h2" id="likeCounter2">
+          Likes: <span id="likes2">0</span>
+          <button id="but" onclick="increaseLikes('likes2', 'blog2');  tggl()">
+            Like
+          </button>
+        </div>
+        <div class="comments-section">
+          <h3 class="h3">Comments:</h3>
+          <ul id="commentsList2" class="h2">
+            <!-- Comments will be added dynamically using JavaScript -->
+          </ul>
+          <textarea id="commentInput2" placeholder="Add a comment"></textarea>
+          <button onclick="addComment('commentInput2', 'commentsList2')">
+            Add Comment
+          </button>
+        </div>
+      </article>
+    </div>
+    <div class="contact_info" id="contact">
+      <p id="Contact">Contact Me:</p>
+      <div class="contacts w3-xxlarge">
+        <a
+          href="https://www.instagram.com/sai_veekshith_3306/"
+          target="_blank"
+          class="w3-text-pink w3-hover-text-blue"
+          ><i title="InstaGram" class="fa fa-instagram"></i
+        ></a>
+        <a
+          href="https://github.com/SaiVeekshithKotha"
+          target="_blank"
+          class="w3-text-grey w3-hover-text-blue"
+          ><i title="GithuB" width="3%" class="fa fa-github"></i
+        ></a>
+
+        <a
+          href="https://facebook.com"
+          class="w3-text-cyan w3-hover-text-blue"
+          target="_blank"
+          ><i title="facebook" class="fa fa-facebook"></i
+        ></a>
+
+        <a href="mailto: saiveekshith.kotha@students.iiit.ac.in" target="_blank"
+          ><img
+            title="Email ME"
+            src="https://cdn.iconscout.com/icon/free/png-512/free-mail-email-message-letter-envelope-inbox-4-18107.png?f=webp&w=512"
+            width="50vw"
+            alt="mail"
+        /></a>
+      </div>
+    </div>
+    <hr />
+
+    <footer>
+      <!-- Include your footer content here if needed -->
+      <p>
+        &lt;&lt;&lt;&copy;<a href="blog.html" target="_blank">Veekshith</a
+        >&gt;&gt;&gt;
+      </p>
+    </footer>
+
+    <script>
+      // Function to increase likes and store in local storage
+      function increaseLikes(spanId, blogId) {
+        let likes = parseInt(document.getElementById(spanId).innerText);
+        likes++;
+        document.getElementById(spanId).innerText = likes;
+        localStorage.setItem(`${blogId}_likes`, likes);
+      }
+
+      // Function to add comment and store in local storage
+      function addComment(inputId, listId) {
+        const commentInput = document.getElementById(inputId);
+        const commentsList = document.getElementById(listId);
+
+        const commentText = commentInput.value.trim();
+        if (commentText !== "") {
+          const li = document.createElement("li");
+          li.textContent = commentText;
+          commentsList.appendChild(li);
+
+          // Save comments to local storage
+          const storedComments =
+            JSON.parse(localStorage.getItem(`${listId}_comments`)) || [];
+          storedComments.push(commentText);
+          localStorage.setItem(
+            `${listId}_comments`,
+            JSON.stringify(storedComments)
+          );
+
+          // Clear the input field
+          commentInput.value = "";
+        }
+      }
+
+      // Function to load likes and comments from local storage on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Load likes for Blog 2
+        const likes2 = parseInt(localStorage.getItem("blog2_likes")) || 0;
+        document.getElementById("likes2").innerText = likes2;
+
+        // Load comments for Blog 2
+        const commentsList2 = document.getElementById("commentsList2");
+        const storedComments2 =
+          JSON.parse(localStorage.getItem("commentsList2_comments")) || [];
+        storedComments2.forEach((comment) => {
+          const li = document.createElement("li");
+          li.textContent = comment;
+          commentsList2.appendChild(li);
+        });
+      });
+    </script>
+
+    <script>
+      let darkMode = false;
+
+      function toggle() {
+        darkMode = !darkMode;
+
+        document
+          .getElementById("body_blog")
+          .classList.toggle("dark_mode", darkMode);
+        document
+          .getElementById("body_blog")
+          .classList.toggle("light_mode", !darkMode);
+      }
+    </script>
+    <footer><a href="/" id="2">Home</a></footer>
+  </body>
+</html>
